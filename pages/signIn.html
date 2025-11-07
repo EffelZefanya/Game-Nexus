@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In - Game Nexus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/global.css" />
+  </head>
+  <body class="bg-[var(--primary-dark)] text-white min-h-screen flex flex-col">
+    <nav class="bg-[var(--primary-base)] shadow-sm text-lg sticky top-0 z-50">
+      <div class="flex justify-between items-center px-6 py-1">
+        <!-- Left: Logo -->
+        <div class="flex items-center space-x-8">
+          <a href="/">
+            <img
+              src="../assets/company/white-logo.png"
+              alt="Game Nexus Logo"
+              class="w-16 block"
+            />
+          </a>
+
+          <!-- Desktop links -->
+          <div class="hidden md:flex space-x-8">
+            <a href="/pages/products.html" class="hover:text-gray-300"
+              >Products</a
+            >
+            <a href="/pages/gallery.html" class="hover:text-gray-300"
+              >Gallery</a
+            >
+            <a href="/pages/about-us.html" class="hover:text-gray-300"
+              >About Us</a
+            >
+            <a href="/pages/contact-us.html" class="hover:text-gray-300"
+              >Contact Us</a
+            >
+          </div>
+        </div>
+
+        <!-- Right: Buttons -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a
+            href="/pages/signIn.html"
+            class="px-4 py-1 rounded-full bg-[var(--accent-base)] hover:bg-[var(--accent-light)]"
+            >Sign In</a
+          >
+          <a
+            href="/pages/register.html"
+            class="px-4 py-1 rounded-full bg-[var(--highlight-base)] hover:bg-[var(--highlight-light)]"
+            >Register</a
+          >
+        </div>
+
+        <!-- Mobile menu button -->
+        <button
+          id="menu-toggle"
+          type="button"
+          class="md:hidden text-3xl focus:outline-none"
+        >
+          ☰
+        </button>
+      </div>
+
+      <!-- Mobile dropdown menu -->
+      <div
+        id="menu"
+        class="hidden flex-col md:hidden border-t border-[var(--primary-light)] bg-[var(--primary-base)]"
+      >
+        <a
+          href="/pages/products.html"
+          class="block px-6 py-3 hover:bg-[var(--primary-light)]"
+          >Products</a
+        >
+        <a
+          href="/pages/gallery.html"
+          class="block px-6 py-3 hover:bg-[var(--primary-light)]"
+          >Gallery</a
+        >
+        <a
+          href="/pages/about-us.html"
+          class="block px-6 py-3 hover:bg-[var(--primary-light)]"
+          >About Us</a
+        >
+        <a href="/pages/contact-us.html" class="block px-6 py-3">Contact Us</a>
+
+        <div class="flex flex-col space-y-3 p-4">
+          <a
+            href="/pages/signIn.html"
+            class="px-4 py-2 rounded-full bg-[var(--accent-base)] hover:bg-[var(--accent-dark)] text-center"
+            >Sign In</a
+          >
+          <a
+            href="/pages/register.html"
+            class="px-4 py-2 rounded-full bg-[var(--highlight-base)] hover:bg-[var(--highlight-dark)] text-center"
+            >Register</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <main class="flex-grow flex items-center justify-center py-12 px-4">
+      <div class="w-full max-w-md">
+        <div class="bg-[var(--primary-base)] rounded-xl shadow-lg p-8">
+          <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold mb-2">Welcome Back, Gamer!</h1>
+            <p class="text-gray-300">Sign in to continue your gaming journey</p>
+          </div>
+
+          <form class="space-y-6">
+            <div>
+              <label for="email" class="block text-sm font-medium mb-2">
+                Email or Username
+              </label>
+              <input
+                type="text"
+                id="email"
+                class="w-full px-4 py-3 rounded-lg bg-[var(--primary-light)] border border-gray-600 focus:border-[var(--accent-base)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-base)] transition-colors"
+                placeholder="Enter your email or username"
+                required
+              />
+            </div>
+
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label for="password" class="block text-sm font-medium">
+                  Password
+              </div>
+              <input
+                type="password"
+                id="password"
+                class="w-full px-4 py-3 rounded-lg bg-[var(--primary-light)] border border-gray-600 focus:border-[var(--accent-base)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-base)] transition-colors"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="w-full py-3 px-4 rounded-lg bg-[var(--accent-base)] hover:bg-[var(--accent-light)] text-white font-medium transition-colors duration-200"
+            >
+              Sign In
+            </button>
+          </form>
+
+          <div class="text-center mt-6">
+            <p class="text-gray-400">
+              Don't have an account?
+              <a href="/pages/register.html" class="text-[var(--highlight-base)] hover:underline font-medium">
+                Create one now
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const res = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          emailOrUsername: document.getElementById("email").value,
+          password: document.getElementById("password").value,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        localStorage.setItem("token", data.token);
+        alert("Login successful!");
+        window.location.href = "/"; // redirect after login
+      } else {
+        alert(data.message);
+      }
+    });
+  });
+</script>
+
+  </body>
+</html>

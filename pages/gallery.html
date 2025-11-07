@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery - Game Nexus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/global.css" />
+  </head>
+  <body class="bg-[var(--primary-dark)] text-white">
+    <nav class="bg-[var(--primary-base)] shadow-sm text-lg sticky top-0 z-50">
+      <div class="flex justify-between items-center px-6 py-1">
+        <!-- Left: Logo -->
+        <div class="flex items-center space-x-8">
+          <a href="/">
+            <img
+              src="../assets/company/white-logo.png"
+              alt="Game Nexus Logo"
+              class="w-16 block"
+            />
+          </a>
+
+          <!-- Desktop links -->
+          <div class="hidden md:flex space-x-8">
+            <a href="/pages/products.html" class="hover:text-gray-300">Products</a>
+            <a href="/pages/gallery.html" class="hover:text-gray-300 text-[var(--accent-base)]"
+              >Gallery</a
+            >
+            <a href="/pages/about-us.html" class="hover:text-gray-300"
+              >About Us</a
+            >
+            <a
+              href="/pages/contact-us.html"
+              class="hover:text-gray-300"
+              >Contact Us</a
+            >
+          </div>
+        </div>
+
+        <!-- Right: Buttons -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a
+            href="/pages/signIn.html"
+            class="px-4 py-1 rounded-full bg-[var(--accent-base)] hover:bg-[var(--accent-light)]"
+            >Sign In</a
+          >
+          <a
+            href="/pages/register.html"
+            class="px-4 py-1 rounded-full bg-[var(--highlight-base)] hover:bg-[var(--highlight-light)]"
+            >Register</a
+          >
+        </div>
+
+        <!-- Mobile menu button -->
+        <button
+          id="menu-toggle"
+          type="button"
+          class="md:hidden text-3xl focus:outline-none"
+        >
+          ☰
+        </button>
+      </div>
+
+      <!-- Mobile dropdown menu -->
+      <div
+        id="menu"
+        class="hidden flex-col md:hidden border-t border-[var(--primary-light)] bg-[var(--primary-base)]"
+      >
+        <a href="/pages/products.html" class="block px-6 py-3 hover:bg-[var(--primary-light)]"
+          >Products</a
+        >
+        <a
+          href="/pages/gallery.html"
+          class="block px-6 py-3 hover:bg-[var(--primary-light)]  bg-[var(--primary-light)]"
+          >Gallery</a
+        >
+        <a
+          href="/pages/about-us.html"
+          class="block px-6 py-3 hover:bg-[var(--primary-light)]"
+          >About Us</a
+        >
+        <a
+          href="/pages/contact-us.html"
+          class="block px-6 py-3 hover:bg-[var(--primary-light)]"
+          >Contact Us</a
+        >
+
+        <div class="flex flex-col space-y-3 p-4">
+          <a
+            href="/pages/signIn.html"
+            class="px-4 py-2 rounded-full bg-[var(--accent-base)] hover:bg-[var(--accent-dark)] text-center"
+            >Sign In</a
+          >
+          <a
+            href="/pages/register.html"
+            class="px-4 py-2 rounded-full bg-[var(--highlight-base)] hover:bg-[var(--highlight-dark)] text-center"
+            >Register</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section
+        class="py-16 px-6 bg-gradient-to-br from-[var(--primary-light)] to-[var(--primary-dark)]"
+      >
+        <div class="container mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">Gallery</h1>
+          <p class="text-xl text-gray max-w-2xl mx-auto">
+            Koleksi gambar dari para <i>gamers</i>, <i>games</i> terbaru,
+            dan acara komunitas kami
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+          <div>
+            <img
+              class="object-cover object-center w-full h-60 max-w-full rounded-lg"
+              src="/assets/products/digimonTimeStranger.webp"
+              alt="Digimon Time Stranger"
+            />
+          </div>
+          <div>
+            <img
+              class="object-cover object-center w-full h-60 max-w-full rounded-lg"
+              src="/assets/products/fallout3.jpeg"
+              alt="Fallout 3"
+            />
+          </div>
+          <div>
+            <img
+              class="object-cover object-center w-full h-60 max-w-full rounded-lg"
+              src="/assets/products/hades.jpg"
+              alt="Hades"
+            />
+          </div>
+          <div>
+            <img
+              class="object-cover object-center w-full h-60 max-w-full rounded-lg"
+              src="/assets/gallery/Hades Concert.jpg"
+              alt="Hades Concert"
+            />
+          </div>
+          <div>
+            <img
+              class="object-cover object-center w-full h-60 max-w-full rounded-lg"
+              src="/assets/gallery/Indonesia Comic Con.webp"
+              alt="Indonesia Comic Con"
+            />
+          </div>
+          <div>
+            <img
+              class="object-cover object-center w-full h-60 max-w-full rounded-lg"
+              src="/assets/gallery/hadesPS5Footage.jpg"
+              alt="Hades PS5 Footage"
+            />
+          </div>
+          <div>
+            <img
+              class="object-cover object-center w-full h-60 max-w-full rounded-lg"
+              src="/assets/gallery/fallout3Clip.jpg"
+              alt="Fallout 3 Clip"
+            />
+          </div>
+          <div>
+            <img
+              class="object-cover object-center w-full h-60 max-w-full rounded-lg"
+              src="/assets/gallery/digimonTimeStrangerClip.jpg"
+              alt="Digimon Time Stranger Clip"
+            />
+          </div>
+          <div>
+            <img
+              class="object-cover object-center w-full h-60 max-w-full rounded-lg"
+              src="/assets/gallery/komunitasDigimonIndonesia.jpg"
+              alt="Komunitas Digimon Indonesia"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-[var(--primary-dark)] py-8 px-6">
+      <div class="text-center text-gray">
+        &copy; 2023 Game Nexus. All rights reserved.
+      </div>
+    </footer>
+
+    <script src="../scripts/teams.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const contactForm = document.getElementById("contact-form");
+
+        const menuToggle = document.getElementById("menu-toggle");
+        const menu = document.getElementById("menu");
+
+        if (menuToggle && menu) {
+          menuToggle.addEventListener("click", function () {
+            menu.classList.toggle("hidden");
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

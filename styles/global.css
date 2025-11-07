@@ -1,0 +1,28 @@
+:root {
+  /* Deep Space Blue - Primary */
+  --primary-dark: #0f172a;      /* Main background */
+  --primary-base: #1e293b;      /* Cards, sections */
+  --primary-light: #334155;     /* Hover states */
+  
+  /* Electric Blue - Accent */
+  --accent-dark: #0369a1;       /* Buttons, important elements */
+  --accent-base: #0ea5e9;       /* Primary CTA, links */
+  --accent-light: #38bdf8;      /* Hover effects */
+  
+  /* Neon Cyan - Highlights */
+  --highlight-dark: #0d9488;    /* Secondary actions */
+  --highlight-base: #14b8a6;    /* Badges, notifications */
+  --highlight-light: #2dd4bf;   /* Interactive elements */
+}
+
+html{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-base);
+    color: white;
+}
+
+a{
+  text-decoration: none;
+}

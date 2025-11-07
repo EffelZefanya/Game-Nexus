@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="styles/global.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Game Nexus</title>
+  </head>
+  <body class="bg-[var(--primary-dark)] text-white">
+    <nav class="bg-[var(--primary-base)] shadow-sm text-lg">
+      <div class="flex justify-between items-center px-6 py-3">
+        <!-- Left: Logo -->
+        <div class="flex items-center space-x-8">
+          <a href="/">
+            <img
+              src="../assets/company/white-logo.png"
+              alt="Game Nexus Logo"
+              class="w-24 block"
+            />
+          </a>
+
+          <!-- Desktop links -->
+          <div class="hidden md:flex space-x-8">
+            <a href="/pages/products.html" class="hover:text-gray-300">Products</a>
+            <a href="/pages/gallery.html" class="hover:text-gray-300"
+              >Gallery</a
+            >
+            <a href="/pages/about-us.html" class="hover:text-gray-300"
+              >About Us</a
+            >
+            <a
+              href="/pages/contact-us.html"
+              class="hover:text-gray-300"
+              >Contact Us</a
+            >
+          </div>
+        </div>
+
+        <!-- Right: Buttons -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a
+            href="/pages/signIn.html"
+            class="px-4 py-1 rounded-full bg-[var(--accent-base)] hover:bg-[var(--accent-light)]"
+            >Sign In</a
+          >
+          <a
+            href="/pages/register.html"
+            class="px-4 py-1 rounded-full bg-[var(--highlight-base)] hover:bg-[var(--highlight-light)]"
+            >Register</a
+          >
+        </div>
+
+        <!-- Mobile menu button -->
+        <button
+          id="menu-toggle"
+          type="button"
+          class="md:hidden text-3xl focus:outline-none"
+        >
+          ☰
+        </button>
+      </div>
+
+      <!-- Mobile dropdown menu -->
+      <div
+        id="menu"
+        class="hidden flex-col md:hidden border-t border-[var(--primary-light)] bg-[var(--primary-base)]"
+      >
+        <a href="/pages/products.html" class="block px-6 py-3 hover:bg-[var(--primary-light)]"
+          >Products</a
+        >
+        <a
+          href="/pages/gallery.html"
+          class="block px-6 py-3 hover:bg-[var(--primary-light)]"
+          >Gallery</a
+        >
+        <a
+          href="/pages/about-us.html"
+          class="block px-6 py-3 hover:bg-[var(--primary-light)]"
+          >About Us</a
+        >
+        <a
+          href="/pages/contact-us.html"
+          class="block px-6 py-3 hover:bg-[var(--primary-light)]"
+          >Contact Us</a
+        >
+
+        <div class="flex flex-col space-y-3 p-4">
+          <a
+            href="/pages/signIn.html"
+            class="px-4 py-2 rounded-full bg-[var(--accent-base)] hover:bg-[var(--accent-dark)] text-center"
+            >Sign In</a
+          >
+          <a
+            href="/pages/register.html"
+            class="px-4 py-2 rounded-full bg-[var(--highlight-base)] hover:bg-[var(--highlight-dark)] text-center"
+            >Register</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section
+        class="flex flex-col space-y-8 justify-center items-center py-25 px-6 bg-gradient-to-b from-[var(--accent-base)] to-[var(--highlight-base)]"
+      >
+        <h1 class="block text-4xl md:text-6xl font-extrabold mb-4">
+          Level Up Your Gaming Experience
+        </h1>
+        <p class="block text-lg md:text-xl max-w-2xl text-gray-200">
+          Discover the latest games, exclusive merchandise, and join Indonesia's
+          fastest growing gaming community
+        </p>
+        <a
+          href="/pages/products.html"
+          class="px-4 py-2 rounded-full bg-[var(--primary-base)] hover:bg-[var(--primary-dark)] text-center"
+          >Explore Games</a
+        >
+      </section>
+
+      <section class="py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+            Featured Games
+          </h2>
+          <div
+            id="games-container"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          ></div>
+        </div>
+      </section>
+
+      <section class="py-16 px-6 bg-[var(--primary-light)]">
+        <div class="max-w-7xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+            What Our Gamers Say
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-[var(--primary-dark)] p-6 rounded-lg shadow-lg">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-12 h-12 bg-gradient-to-r from-[var(--highlight-light)] to-[var(--accent-light)] rounded-full flex items-center justify-center text-white font-bold text-lg"
+                >
+                  A
+                </div>
+                <div class="ml-4">
+                  <h3 class="font-bold text-lg">Andi</h3>
+                  <p class="text-gray-400 text-sm">Professional Gamer</p>
+                </div>
+              </div>
+              <p class="text-gray-300 italic mb-4">
+                "Game Nexus bener-bener mempermudah beli game! Proses cepat dan
+                harganya kompetitif!"
+              </p>
+              <div class="flex text-yellow-400">★★★★★</div>
+            </div>
+
+            <div class="bg-[var(--primary-dark)] p-6 rounded-lg shadow-lg">
+              <div class="flex items-center mb-4">
+                <div
+                  class="w-12 h-12 bg-gradient-to-r from-[var(--highlight-light)] to-[var(--accent-light)] rounded-full flex items-center justify-center text-white font-bold text-lg"
+                >
+                  S
+                </div>
+                <div class="ml-4">
+                  <h3 class="font-bold text-lg">Sari</h3>
+                  <p class="text-gray-400 text-sm">Game Collector</p>
+                </div>
+              </div>
+              <p class="text-gray-300 italic mb-4">
+                "Library game lengkap banget! Respon CS juga cepat ketika ada
+                error instalasi game. Love love~"
+              </p>
+              <div class="flex text-yellow-400">★★★★★</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-[var(--primary-dark)] py-8 px-6">
+        <div class="text-center text-gray">
+          &copy; 2023 Game Nexus. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="scripts/games.js"></script>
+
+    <script>
+      function createGameCards() {
+        const container = document.getElementById("games-container");
+
+        featuredGames.forEach((game) => {
+          const card = document.createElement("div");
+          card.className =
+            "game-card bg-[var(--primary-base)] rounded-lg overflow-hidden shadow-lg";
+
+          card.innerHTML = `
+            <div class="h-48 overflow-hidden">
+              <img 
+                src="${game.image}" 
+                alt="${game.title}" 
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">${game.title}</h3>
+              <div class="flex flex-wrap gap-2 mb-4">
+                ${game.genre
+                  .split(", ")
+                  .map(
+                    (genre) =>
+                      `<span class="px-2 py-1 bg-[var(--primary-light)] text-xs rounded-full">${genre}</span>`
+                  )
+                  .join("")}
+              </div>
+              <div class="mb-4">
+                <p class="text-sm text-gray-300"><span class="font-semibold">Developer:</span> ${
+                  game.developer
+                }</p>
+                <p class="text-sm text-gray-300"><span class="font-semibold">Release Date:</span> ${
+                  game.releaseData
+                }</p>
+              </div>
+              </div>
+            </div>
+          `;
+
+          container.appendChild(card);
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", createGameCards);
+    </script>
+
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+        const menu = document.getElementById("menu");
+
+        if (menuToggle && menu) {
+          menuToggle.addEventListener("click", function () {
+            menu.classList.toggle("hidden");
+          });
+        }
+    </script>
+  </body>
+</html>

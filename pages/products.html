@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products - Game Nexus</title>
+    <link rel="stylesheet" href="/styles/global.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-[var(--primary-dark)] text-white">
+    <nav class="bg-[var(--primary-base)] shadow-sm text-lg sticky top-0 z-50">
+      <div class="flex justify-between items-center px-6 py-1">
+        <!-- Left: Logo -->
+        <div class="flex items-center space-x-8">
+          <a href="/">
+            <img
+              src="../assets/company/white-logo.png"
+              alt="Game Nexus Logo"
+              class="w-16 block"
+            />
+          </a>
+
+          <!-- Desktop links -->
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="/pages/products.html"
+              class="hover:text-gray-300 text-[var(--accent-base)]"
+              >Products</a
+            >
+            <a href="/pages/gallery.html" class="hover:text-gray-300"
+              >Gallery</a
+            >
+            <a href="/pages/about-us.html" class="hover:text-gray-300"
+              >About Us</a
+            >
+            <a href="/pages/contact-us.html" class="hover:text-gray-300"
+              >Contact Us</a
+            >
+          </div>
+        </div>
+
+        <!-- Right: Buttons -->
+        <div class="hidden md:flex items-center space-x-4">
+          <div class="relative">
+            <button
+              id="cart-toggle"
+              class="flex items-center space-x-1 px-4 py-1 rounded-full bg-[var(--primary-light)] hover:bg-[var(--accent-base)] transition-colors"
+            >
+              <i class="fas fa-shopping-cart"></i>
+              <span>Cart</span>
+              <span
+                id="cart-count"
+                class="absolute -top-2 -right-2 bg-[var(--highlight-base)] text-white rounded-full w-6 h-6 flex items-center justify-center text-xs"
+                >0</span
+              >
+            </button>
+          </div>
+          <a
+            href="/pages/signIn.html"
+            class="px-4 py-1 rounded-full bg-[var(--accent-base)] hover:bg-[var(--accent-light)]"
+            >Sign In</a
+          >
+          <a
+            href="/pages/register.html"
+            class="px-4 py-1 rounded-full bg-[var(--highlight-base)] hover:bg-[var(--highlight-light)]"
+            >Register</a
+          >
+        </div>
+
+        <!-- Mobile menu button -->
+        <button
+          id="menu-toggle"
+          type="button"
+          class="md:hidden text-3xl focus:outline-none"
+        >
+          ☰
+        </button>
+      </div>
+
+      <!-- Mobile dropdown menu -->
+      <div
+        id="menu"
+        class="hidden flex-col md:hidden border-t border-[var(--primary-light)] bg-[var(--primary-base)]"
+      >
+        <a
+          href="/pages/products.html"
+          class="block px-6 py-3 hover:bg-[var(--primary-light)]"
+          >Products</a
+        >
+        <a
+          href="/pages/gallery.html"
+          class="block px-6 py-3 hover:bg-[var(--primary-light)]"
+          >Gallery</a
+        >
+        <a
+          href="/pages/about-us.html"
+          class="block px-6 py-3 hover:bg-[var(--primary-light)]"
+          >About Us</a
+        >
+        <a
+          href="/pages/contact-us.html"
+          class="block px-6 py-3 hover:bg-[var(--primary-light)]"
+          >Contact Us</a
+        >
+
+        <div class="flex flex-col space-y-3 p-4">
+          <button
+            id="mobile-cart-toggle"
+            class="flex items-center justify-center space-x-2 px-4 py-2 rounded-full bg-[var(--primary-light)] hover:bg-[var(--accent-base)]"
+          >
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+            <span
+              id="mobile-cart-count"
+              class="bg-[var(--highlight-base)] text-white rounded-full w-6 h-6 flex items-center justify-center text-xs"
+              >0</span
+            >
+          </button>
+          <a
+            href="/pages/signIn.html"
+            class="px-4 py-2 rounded-full bg-[var(--accent-base)] hover:bg-[var(--accent-dark)] text-center"
+            >Sign In</a
+          >
+          <a
+            href="/pages/register.html"
+            class="px-4 py-2 rounded-full bg-[var(--highlight-base)] hover:bg-[var(--highlight-dark)] text-center"
+            >Register</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- hidden section for sidebar -->
+    <section>
+      <div
+        id="cart-sidebar"
+        class="fixed top-0 right-0 h-full w-full md:w-96 bg-[var(--primary-base)] shadow-lg z-50 transform translate-x-full transition-transform duration-300 overflow-y-auto"
+      >
+        <div class="p-6">
+          <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold">Your Cart</h2>
+            <button
+              id="close-cart"
+              class="text-xl hover:text-[var(--accent-base)]"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+
+          <div id="cart-items" class="mb-6">
+            <!-- Cart items will be dynamically inserted here -->
+            <div id="empty-cart-message" class="text-center py-8">
+              <i
+                class="fas fa-shopping-cart text-4xl text-[var(--primary-light)] mb-4"
+              ></i>
+              <p class="text-lg">Your cart is empty</p>
+              <p class="text-sm text-gray-400 mt-2">
+                Add some games to get started!
+              </p>
+            </div>
+          </div>
+
+          <div
+            id="cart-summary"
+            class="border-t border-[var(--primary-light)] pt-4 hidden"
+          >
+            <div class="flex justify-between mb-2">
+              <span>Subtotal:</span>
+              <span id="cart-subtotal">Rp0</span>
+            </div>
+            <div class="flex justify-between mb-4">
+              <span>Tax (10%):</span>
+              <span id="cart-tax">Rp0</span>
+            </div>
+            <div class="flex justify-between font-bold text-lg mb-6">
+              <span>Total:</span>
+              <span id="cart-total">Rp0</span>
+            </div>
+            <button
+              id="checkout-btn"
+              class="w-full py-3 rounded-full bg-[var(--accent-base)] hover:bg-[var(--accent-light)] transition-colors font-bold"
+            >
+              Proceed to Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cart Overlay -->
+      <div
+        id="cart-overlay"
+        class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"
+      ></div>
+    </section>
+
+    <section
+      class="py-16 px-6 bg-gradient-to-br from-[var(--primary-light)] to-[var(--primary-dark)]"
+    >
+      <div class="container mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Games Collection</h1>
+        <p class="text-xl text-gray max-w-2xl mx-auto">
+          Koleksi <i>games</i> kami untuk semua <i>gamers</i> Indonesia
+        </p>
+      </div>
+    </section>
+
+    <main class="py-8 px-4 md:px-8">
+      <div
+        id="games-container"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+      >
+        <!-- Game cards will be dynamically inserted here -->
+      </div>
+    </main>
+
+    <script src="/scripts/games.js"></script>
+    <script src="/scripts/cart.js"></script>
+  </body>
+</html>
