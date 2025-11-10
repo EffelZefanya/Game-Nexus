@@ -4,4 +4,5 @@
 
 ## Milestone-Project
 
-Milestone project for Hacktiv8 Phase 0
+Milestone project for Hacktiv8 Phase 0.
+Live showcase for front-end only is here: https://app.netlify.com/projects/game-nexus-effel/overview/quick-setup
